@@ -2,8 +2,13 @@ package neo4j;
 
 import neo4j.dao.NoteRepository;
 import neo4j.dao.NoteRelationRepository;
+import neo4j.dao.note.ChineseNameRepository;
+import neo4j.dao.ship.AliasRelationRepository;
+import neo4j.entity.Alias;
+import neo4j.entity.ChineseName;
 import neo4j.entity.Node;
-import neo4j.entity.NoteRelation;
+import neo4j.ship.AliasRelation;
+import neo4j.ship.NoteRelation;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -20,6 +25,30 @@ public class Neo4jApplicationTest {
     private NoteRelationRepository noteRelationRepository;
     @Autowired
     private NoteRepository noteRepository;
+
+    @Autowired
+    private ChineseNameRepository chineseNameRepository;
+
+    @Autowired
+    private AliasRelationRepository aliasRelationRepository;
+
+
+    @Test
+    public void testCreate1(){
+        ChineseName chineseName1 = ChineseName.builder().name("氨").build();
+        List<ChineseName> chineseNameList = new ArrayList<>(Arrays.asList(
+                chineseName1));
+        chineseNameRepository.saveAll(chineseNameList);
+
+        Alias alias = Alias.builder().name("氨气").build();
+
+        AliasRelation aliasRelation = new AliasRelation(chineseName1,alias,"别名");
+        List<AliasRelation> aliasRelationList = new ArrayList<>(Arrays.asList(
+                aliasRelation));
+        aliasRelationRepository.saveAll(aliasRelationList);
+    }
+
+
     @Test
     public void testCreate(){
         Node person = Node.builder().name("唐僧").build();
