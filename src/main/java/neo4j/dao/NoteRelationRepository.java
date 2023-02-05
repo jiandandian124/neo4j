@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface NoteRelationRepository extends
-        Neo4jRepository<NoteRelation,Long> {
+        Neo4jRepository<Object,Long> {
 }
