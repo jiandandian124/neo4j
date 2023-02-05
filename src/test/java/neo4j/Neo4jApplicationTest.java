@@ -55,15 +55,16 @@ public class Neo4jApplicationTest {
 //hasNext进行判断是否有下一条
         int i = 0;
 
-//        while(iterator.hasNext()) {
-//            i++;
-//            Document next = iterator.next();
+        while(iterator.hasNext()) {
+            i++;
+            Document next = iterator.next();
+            testCreate3(next);
 //            System.out.println(next.get("外观与性状"));
-//            System.out.println(i);
-//        }
+            System.out.println(i);
+        }
 
-        Document document = iterator.next();
-        testCreate3(document);
+//        Document document = iterator.next();
+//        testCreate3(document);
 
         mc.close();
     }
