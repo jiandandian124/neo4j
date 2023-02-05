@@ -70,32 +70,48 @@ public class Neo4jApplicationTest {
     @Test
     public void testCreate3(Document next){
         //得到mongodb数据库中的文档，并转为String
-        String chineseName1 = next.get("外观与性状").toString();
+        String chineseName1 = next.get("中文名称").toString();
+        String alias1 = next.get("别名").toString();
+        String aspect1 = next.get("外观与性状").toString();
+        String CAS1 = next.get("CAS").toString();
+        String dangerSign1 = next.get("危险标记").toString();
+        String density1 = next.get("密度").toString();
+        String englishName1 = next.get("英文名称").toString();
+        String fusionPoint1 = next.get("熔点").toString();
+        String molecularFormula1 = next.get("分子式").toString();
+        String molecularWeight1 = next.get("分子量").toString();
+        String other1 = next.get("其他").toString();
+        String solubleness1 = next.get("溶解性").toString();
+        String stability1 = next.get("稳定性").toString();
+        String use1 = next.get("用途").toString();
+        String vapourPressure1 = next.get("蒸汽压").toString();
 
 
 
 
-        ChineseName chineseName = ChineseName.builder().name("阿斯顿发").build();
+
+
+        ChineseName chineseName = ChineseName.builder().name(chineseName1).build();
 //        List<ChineseName> chineseNameList = new ArrayList<>(Arrays.asList(
 //                chineseName1));
 //        chineseNameRepository.saveAll(chineseNameList);
 //可以少些note结点仓库，不过无法省略关系仓库
         // TODO: 2023/2/3 继续写关系仓库 以及关系结点
         //实体创建
-        Alias alias = Alias.builder().name("爱是解放军气").build();
-        Aspect aspect = Aspect.builder().name("好看").build();
-        CAS cas = CAS.builder().name("46545-5454").build();
-        DangerSign dangerSign = DangerSign.builder().name("危险").build();
-        Density density = Density.builder().name("密度").build();
-        EnglishName englishName = EnglishName.builder().name("英文名称").build();
-        FusionPoint fusionPoint = FusionPoint.builder().name("熔点").build();
-        MolecularFormula molecularFormula = MolecularFormula.builder().name("分子式").build();
-        MolecularWeight molecularWeight = MolecularWeight.builder().name("分子量").build();
-        Other other = Other.builder().name("其他").build();
-        Solubleness solubleness = Solubleness.builder().name("溶解性").build();
-        Stability stability = Stability.builder().name("稳定性").build();
-        Use use = Use.builder().name("用途").build();
-        VapourPressure vapourPressure = VapourPressure.builder().name("蒸汽压").build();
+        Alias alias = Alias.builder().name(alias1).build();
+        Aspect aspect = Aspect.builder().name(aspect1).build();
+        CAS cas = CAS.builder().name(CAS1).build();
+        DangerSign dangerSign = DangerSign.builder().name(dangerSign1).build();
+        Density density = Density.builder().name(density1).build();
+        EnglishName englishName = EnglishName.builder().name(englishName1).build();
+        FusionPoint fusionPoint = FusionPoint.builder().name(fusionPoint1).build();
+        MolecularFormula molecularFormula = MolecularFormula.builder().name(molecularFormula1).build();
+        MolecularWeight molecularWeight = MolecularWeight.builder().name(molecularWeight1).build();
+        Other other = Other.builder().name(other1).build();
+        Solubleness solubleness = Solubleness.builder().name(solubleness1).build();
+        Stability stability = Stability.builder().name(stability1).build();
+        Use use = Use.builder().name(use1).build();
+        VapourPressure vapourPressure = VapourPressure.builder().name(vapourPressure1).build();
 
 
 
